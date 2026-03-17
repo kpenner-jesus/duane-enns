@@ -526,7 +526,7 @@ export default function FunnelPage() {
                         fontFamily: "'Playfair Display', Georgia, serif",
                         fontSize: "1.1rem",
                         fontWeight: 600,
-                        color: "#1a1a14",
+                        color: "#002349",
                         marginBottom: "0.5rem",
                       }}
                     >
@@ -536,7 +536,7 @@ export default function FunnelPage() {
                       style={{
                         fontFamily: "'Outfit', system-ui, sans-serif",
                         fontSize: "0.85rem",
-                        color: "#8a8a80",
+                        color: "#8a8f9a",
                       }}
                     >
                       In the meantime, your free guide is on its way!
@@ -594,14 +594,14 @@ export default function FunnelPage() {
                   alignItems: "center",
                   gap: "0.75rem",
                   padding: "1.1rem 2.5rem",
-                  background: "linear-gradient(135deg, #c4622d, #d4723d)",
+                  background: "linear-gradient(135deg, #002349, #003366)",
                   color: "#fff",
                   fontFamily: "'Outfit', system-ui, sans-serif",
                   fontSize: "1.15rem",
                   fontWeight: 700,
                   borderRadius: "18px",
                   textDecoration: "none",
-                  boxShadow: "0 6px 24px rgba(196, 98, 45, 0.35)",
+                  boxShadow: "0 6px 24px rgba(0, 35, 73, 0.35)",
                   transition: "all 0.3s ease",
                   marginBottom: "1.25rem",
                 }}
@@ -630,13 +630,13 @@ export default function FunnelPage() {
                   gap: "0.5rem",
                   fontFamily: "'Outfit', system-ui, sans-serif",
                   fontSize: "0.9rem",
-                  color: "#8a8a80",
+                  color: "#8a8f9a",
                 }}
               >
                 <a
                   href="tel:+12043462111"
                   style={{
-                    color: "#5a5a50",
+                    color: "#5a6070",
                     textDecoration: "none",
                     transition: "color 0.2s",
                   }}
@@ -646,7 +646,7 @@ export default function FunnelPage() {
                 <a
                   href="mailto:duane@coldwellbanker.ca"
                   style={{
-                    color: "#5a5a50",
+                    color: "#5a6070",
                     textDecoration: "none",
                     transition: "color 0.2s",
                   }}

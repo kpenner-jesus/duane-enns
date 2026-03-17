@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════
-   LANDING PAGE — "Prairie Refined" Design System
+   LANDING PAGE — Coldwell Banker Design System
+   Navy #002349 · White · Gold #c5a46d
    ═══════════════════════════════════════════════════════ */
 
 html {
@@ -23,11 +24,11 @@ html {
 }
 
 /* ═══════════════════════════════════════════════════════
-   FUNNEL — Typeform-style design
+   FUNNEL — Typeform-style design (CB Navy theme)
    ═══════════════════════════════════════════════════════ */
 
 .funnel-bg {
-  background: linear-gradient(135deg, #fde8c8 0%, #fdf3e3 50%, #f0eafa 100%);
+  background: linear-gradient(135deg, #e8edf4 0%, #f0f3f8 50%, #e6e9f0 100%);
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -38,13 +39,13 @@ html {
   left: 0;
   width: 100%;
   height: 5px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 35, 73, 0.1);
   z-index: 50;
 }
 
 .tf-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #c4622d, #e07a3a);
+  background: linear-gradient(90deg, #002349, #003366);
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0 3px 3px 0;
 }
@@ -67,13 +68,13 @@ html {
 }
 
 .tf-card {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 24px;
   padding: 2.5rem 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 35, 73, 0.08);
 }
 
 @media (min-width: 640px) {
@@ -88,7 +89,7 @@ html {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c4622d;
+  color: #c5a46d;
   margin-bottom: 0.75rem;
 }
 
@@ -97,7 +98,7 @@ html {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #1a1a14;
+  color: #002349;
   margin-bottom: 0.5rem;
 }
 
@@ -110,7 +111,7 @@ html {
 .tf-subtext {
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 0.95rem;
-  color: #5a5a50;
+  color: #5a6070;
   margin-bottom: 1.75rem;
   line-height: 1.5;
 }
@@ -124,9 +125,9 @@ html {
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #1a1a14;
+  color: #002349;
   background: rgba(255, 255, 255, 0.7);
-  border: 1.5px solid rgba(196, 98, 45, 0.15);
+  border: 1.5px solid rgba(0, 35, 73, 0.1);
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -134,9 +135,9 @@ html {
 
 .tf-choice:hover {
   background: rgba(255, 255, 255, 0.95);
-  border-color: #c4622d;
+  border-color: #002349;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(196, 98, 45, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 35, 73, 0.1);
 }
 
 .tf-choice:active {
@@ -150,8 +151,8 @@ html {
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: rgba(196, 98, 45, 0.1);
-  color: #c4622d;
+  background: rgba(0, 35, 73, 0.08);
+  color: #002349;
   font-weight: 600;
   font-size: 0.8rem;
   margin-right: 0.75rem;
@@ -163,22 +164,22 @@ html {
   padding: 1rem 1.25rem;
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 1rem;
-  color: #1a1a14;
+  color: #002349;
   background: rgba(255, 255, 255, 0.8);
-  border: 1.5px solid rgba(196, 98, 45, 0.2);
+  border: 1.5px solid rgba(0, 35, 73, 0.15);
   border-radius: 14px;
   outline: none;
   transition: all 0.25s ease;
 }
 
 .tf-input-box:focus {
-  border-color: #c4622d;
-  box-shadow: 0 0 0 3px rgba(196, 98, 45, 0.1);
+  border-color: #002349;
+  box-shadow: 0 0 0 3px rgba(0, 35, 73, 0.08);
   background: rgba(255, 255, 255, 0.95);
 }
 
 .tf-input-box::placeholder {
-  color: #a0a090;
+  color: #a0a5b0;
 }
 
 .tf-ok {
@@ -191,18 +192,18 @@ html {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #c4622d, #d4723d);
+  background: linear-gradient(135deg, #002349, #003366);
   border: none;
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(196, 98, 45, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 35, 73, 0.3);
 }
 
 .tf-ok:hover {
-  background: linear-gradient(135deg, #a85225, #c4622d);
+  background: linear-gradient(135deg, #001a36, #002349);
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(196, 98, 45, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 35, 73, 0.4);
 }
 
 .tf-ok:disabled {
@@ -221,7 +222,7 @@ html {
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #8a8a80;
+  color: #8a8f9a;
   background: none;
   border: none;
   cursor: pointer;
@@ -230,13 +231,13 @@ html {
 }
 
 .tf-back:hover {
-  color: #c4622d;
+  color: #002349;
 }
 
 .tf-alert-error {
   font-family: "Outfit", system-ui, sans-serif;
   font-size: 0.85rem;
-  color: #c4622d;
+  color: #c0392b;
   margin-top: 0.5rem;
 }
 
@@ -263,8 +264,8 @@ html {
 
 /* Video placeholder card */
 .video-placeholder {
-  background: linear-gradient(135deg, rgba(196, 98, 45, 0.08), rgba(45, 74, 45, 0.08));
-  border: 2px dashed rgba(196, 98, 45, 0.25);
+  background: linear-gradient(135deg, rgba(0, 35, 73, 0.05), rgba(197, 164, 109, 0.08));
+  border: 2px dashed rgba(0, 35, 73, 0.2);
   border-radius: 16px;
   display: flex;
   flex-direction: column;

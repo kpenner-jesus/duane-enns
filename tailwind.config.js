@@ -6,12 +6,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cream: "#fdf8f0",
-        terracotta: "#c4622d",
-        "terracotta-dark": "#a85225",
-        forest: "#2d4a2d",
-        "forest-light": "#3d6a3d",
-        ink: "#1a1a14",
+        navy: "#002349",
+        "navy-light": "#003366",
+        "navy-dark": "#001a36",
+        gold: "#c5a46d",
+        "gold-light": "#d4b87e",
+        "gold-dark": "#a88a55",
+        cream: "#f8f6f2",
+        ink: "#1a1a2e",
       },
       fontFamily: {
         display: ["Cormorant Garamond", "Georgia", "serif"],

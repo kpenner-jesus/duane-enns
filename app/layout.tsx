@@ -42,7 +42,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body text-ink bg-cream antialiased">
+      <body className="font-body text-ink bg-white antialiased">
         {children}
       </body>
     </html>
