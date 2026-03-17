@@ -124,6 +124,12 @@ function Choice({
 }
 
 /* ─── Main Funnel ─── */
+// Debug: log env vars on module load
+console.log("[FUNNEL DEBUG] SHEET_URL:", SHEET_URL ? `"${SHEET_URL}"` : "⚠️ EMPTY — check .env.local NEXT_PUBLIC_GOOGLE_SHEET_URL");
+console.log("[FUNNEL DEBUG] EmailJS SERVICE:", SERVICE || "⚠️ EMPTY");
+console.log("[FUNNEL DEBUG] EmailJS TEMPLATE:", TEMPLATE || "⚠️ EMPTY");
+console.log("[FUNNEL DEBUG] EmailJS PUBKEY:", PUBKEY || "⚠️ EMPTY");
+
 export default function FunnelPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -179,29 +185,36 @@ export default function FunnelPage() {
   }
 
   function sendToSheet(a: Answers) {
-    if (!SHEET_URL) return;
+    console.log("[FUNNEL DEBUG] sendToSheet() called");
+    console.log("[FUNNEL DEBUG] SHEET_URL value:", SHEET_URL ? `"${SHEET_URL}"` : "⚠️ EMPTY");
+    if (!SHEET_URL) {
+      console.warn("[FUNNEL DEBUG] ⚠️ SHEET_URL is empty — fetch will NOT fire. Set NEXT_PUBLIC_GOOGLE_SHEET_URL in .env.local");
+      return;
+    }
 
     const video = getVideo(a);
+    const payload = {
+      date: new Date().toLocaleDateString("en-CA"),
+      email: a.email,
+      situation: a.situation,
+      concern: a.concern,
+      condition: a.condition,
+      timeline: a.timeline,
+      goal: a.goal,
+      video_shown: video.id,
+    };
+    console.log("[FUNNEL DEBUG] 🚀 Fetching SHEET_URL with payload:", payload);
     fetch(SHEET_URL, {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({
-        date: new Date().toLocaleDateString("en-CA"),
-        email: a.email,
-        situation: a.situation,
-        concern: a.concern,
-        condition: a.condition,
-        timeline: a.timeline,
-        goal: a.goal,
-        video_shown: video.id,
-      }),
+      body: JSON.stringify(payload),
     })
-      .then(() => {
-        console.log("Lead sent to Google Sheet");
+      .then((res) => {
+        console.log("[FUNNEL DEBUG] ✅ Fetch completed. Status:", res.status, "Type:", res.type);
       })
       .catch((err) => {
-        console.error("Google Sheet error:", err);
+        console.error("[FUNNEL DEBUG] ❌ Fetch error:", err);
       });
   }
 
