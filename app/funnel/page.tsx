@@ -37,9 +37,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
 
-const SERVICE  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
-const TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-const PUBKEY   = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const SERVICE   = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+const TEMPLATE  = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+const PUBKEY    = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const SHEET_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL ?? "";
 
 /* ─── Types ─── */
 type Answers = {
@@ -147,6 +148,7 @@ export default function FunnelPage() {
       // Step 6 is the last question — advance to video and send email
       const updated = { ...answers, [field]: value };
       sendEmail(updated);
+      sendToSheet(updated);
       setStep(7);
     }
   }
@@ -173,6 +175,33 @@ export default function FunnelPage() {
       })
       .catch((err) => {
         console.error("EmailJS error:", err);
+      });
+  }
+
+  function sendToSheet(a: Answers) {
+    if (!SHEET_URL) return;
+
+    const video = getVideo(a);
+    fetch(SHEET_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date: new Date().toLocaleDateString("en-CA"),
+        email: a.email,
+        situation: a.situation,
+        concern: a.concern,
+        condition: a.condition,
+        timeline: a.timeline,
+        goal: a.goal,
+        video_shown: video.id,
+      }),
+    })
+      .then(() => {
+        console.log("Lead sent to Google Sheet");
+      })
+      .catch((err) => {
+        console.error("Google Sheet error:", err);
       });
   }
 
