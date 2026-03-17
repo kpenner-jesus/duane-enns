@@ -185,7 +185,7 @@ export default function FunnelPage() {
     fetch(SHEET_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
         date: new Date().toLocaleDateString("en-CA"),
         email: a.email,
