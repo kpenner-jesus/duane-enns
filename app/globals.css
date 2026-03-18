@@ -11,16 +11,42 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Scroll animation observer */
+/* Scroll animation observer — premium easing with stagger support */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s);
 }
 
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Section divider — soft gradient line between sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 35, 73, 0.08), transparent);
+}
+
+.section-divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(197, 164, 109, 0.2), transparent);
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .tf-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════

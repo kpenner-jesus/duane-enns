@@ -28,7 +28,7 @@ export default function HomePage() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
 
     document.querySelectorAll(".fade-up").forEach((el) => {
@@ -49,26 +49,42 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl translate-y-1/3 -translate-x-1/4" />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-sm font-medium tracking-widest uppercase text-gold mb-4 fade-up">
+          {/* Decorative gold line */}
+          <div
+            className="w-12 h-px bg-gold/40 mx-auto mb-6 fade-up"
+            style={{ "--delay": "0s" } as React.CSSProperties}
+          />
+          <p
+            className="text-xs font-medium tracking-label uppercase text-gold mb-4 fade-up"
+            style={{ "--delay": "0.05s" } as React.CSSProperties}
+          >
             Coldwell Banker Preferred Real Estate
           </p>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white mb-6 fade-up">
-            Sell Your Home for More Than You Think It's Worth
+          <h1
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white mb-6 fade-up"
+            style={{ "--delay": "0.15s" } as React.CSSProperties}
+          >
+            Sell Your Home for More Than You Think It&apos;s Worth
           </h1>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed fade-up">
+          <p
+            className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed fade-up"
+            style={{ "--delay": "0.25s" } as React.CSSProperties}
+          >
             Duane Enns knows exactly what buyers pay top dollar for — and how to
             get your home there without overspending.
           </p>
           <button
             onClick={openFunnel}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gold hover:bg-gold-light text-navy font-bold text-lg rounded-2xl shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/30 transition-all duration-300 hover:-translate-y-0.5 fade-up"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gold hover:bg-gold-light text-navy font-bold text-lg rounded-full shadow-btn-gold hover:shadow-btn-gold-hover transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy fade-up"
+            style={{ "--delay": "0.35s" } as React.CSSProperties}
           >
             Get the Free Guide: How to Make $10,000 More on Your Home Sale
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -79,27 +95,40 @@ export default function HomePage() {
             </svg>
           </button>
         </div>
+
+        {/* Bottom gradient fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/5 to-transparent" />
       </section>
+
+      {/* Divider */}
+      <div className="section-divider" />
 
       {/* ═══ SECTION 2 — THE DIFFERENCE ═══ */}
       <section className="px-6 py-24 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-center text-navy mb-4 fade-up">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-center tracking-tight text-navy mb-4 fade-up">
             Not Just an Agent — A Home Expert
           </h2>
-          <p className="text-center text-navy/40 mb-16 fade-up">
+          <p
+            className="text-center text-xs font-medium tracking-label uppercase text-navy/50 mb-16 fade-up"
+            style={{ "--delay": "0.1s" } as React.CSSProperties}
+          >
             What makes working with Duane different
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             {/* Column 1 */}
-            <div className="text-center px-4 fade-up">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-navy/5 flex items-center justify-center">
+            <div
+              className="text-center px-6 py-8 rounded-2xl bg-white border border-navy/5 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 fade-up"
+              style={{ "--delay": "0s" } as React.CSSProperties}
+            >
+              <div className="w-14 h-14 mx-auto mb-6 rounded-xl bg-navy/5 ring-1 ring-navy/5 flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-navy"
+                  className="w-7 h-7 text-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -119,13 +148,17 @@ export default function HomePage() {
             </div>
 
             {/* Column 2 */}
-            <div className="text-center px-4 fade-up">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold/10 flex items-center justify-center">
+            <div
+              className="text-center px-6 py-8 rounded-2xl bg-white border border-navy/5 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 fade-up"
+              style={{ "--delay": "0.15s" } as React.CSSProperties}
+            >
+              <div className="w-14 h-14 mx-auto mb-6 rounded-xl bg-gold/10 ring-1 ring-gold/20 flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-gold-dark"
+                  className="w-7 h-7 text-gold-dark"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -139,19 +172,23 @@ export default function HomePage() {
                 An Eye for Beauty
               </h3>
               <p className="text-navy/50 leading-relaxed">
-                His wife's professional decorating background means your home is
+                His wife&apos;s professional decorating background means your home is
                 staged and presented to stop buyers in their tracks.
               </p>
             </div>
 
             {/* Column 3 */}
-            <div className="text-center px-4 fade-up">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-navy/5 flex items-center justify-center">
+            <div
+              className="text-center px-6 py-8 rounded-2xl bg-white border border-navy/5 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 fade-up"
+              style={{ "--delay": "0.3s" } as React.CSSProperties}
+            >
+              <div className="w-14 h-14 mx-auto mb-6 rounded-xl bg-navy/5 ring-1 ring-navy/5 flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-navy"
+                  className="w-7 h-7 text-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -173,34 +210,46 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="section-divider-gold" />
+
       {/* ═══ SECTION 3 — ABOUT DUANE ═══ */}
       <section className="px-6 py-24 bg-cream">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
-            <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 fade-up">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 fade-up">
+              {/* Decorative halo behind photo */}
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/10 to-navy/5 -z-10" />
               <img
                 src="https://i10.moxi.onl/img-pr/a/7faa4f50-42b4-4d01-a9bc-1c297ea92741/0_1_full.jpg"
                 alt="Duane Enns, REALTOR® — Coldwell Banker Preferred Real Estate"
-                className="w-full h-full object-cover rounded-3xl shadow-xl ring-4 ring-navy/10"
+                className="w-full h-full object-cover rounded-3xl shadow-2xl ring-1 ring-navy/10"
               />
             </div>
-            <div className="fade-up">
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy mb-6">
+            <div
+              className="fade-up"
+              style={{ "--delay": "0.15s" } as React.CSSProperties}
+            >
+              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-navy mb-6">
                 Meet Duane Enns
               </h2>
-              <p className="text-lg text-navy/60 leading-relaxed mb-6">
+              <p className="text-lg text-navy/55 leading-relaxed mb-6">
                 I grew up in rural Manitoba. I know these communities, these
                 roads, and these homes. When you work with me, you get someone
                 who has built homes, fixed homes, sold homes — and who genuinely
                 cares about getting you the best outcome possible.
               </p>
-              <div className="flex flex-wrap gap-4 text-sm text-navy/40">
-                <span className="flex items-center gap-2">
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="tel:+12043462111"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-navy/5 text-navy/60 text-sm font-medium hover:bg-navy/10 hover:text-navy transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
+                >
                   <svg
                     className="w-4 h-4 text-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -210,13 +259,17 @@ export default function HomePage() {
                     />
                   </svg>
                   (204) 346-2111
-                </span>
-                <span className="flex items-center gap-2">
+                </a>
+                <a
+                  href="mailto:duane@coldwellbanker.ca"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-navy/5 text-navy/60 text-sm font-medium hover:bg-navy/10 hover:text-navy transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
+                >
                   <svg
                     className="w-4 h-4 text-gold"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -226,27 +279,36 @@ export default function HomePage() {
                     />
                   </svg>
                   duane@coldwellbanker.ca
-                </span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="section-divider" />
+
       {/* ═══ SECTION 4 — AREAS SERVED ═══ */}
       <section className="px-6 py-24 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy mb-4 fade-up">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-navy mb-4 fade-up">
             Proudly Serving Southern Manitoba
           </h2>
-          <p className="text-navy/40 mb-12 fade-up">
+          <p
+            className="text-xs font-medium tracking-label uppercase text-navy/50 mb-12 fade-up"
+            style={{ "--delay": "0.1s" } as React.CSSProperties}
+          >
             Local knowledge. Personal commitment. Real results.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 fade-up">
+          <div
+            className="flex flex-wrap justify-center gap-3 fade-up"
+            style={{ "--delay": "0.2s" } as React.CSSProperties}
+          >
             {AREAS.map((area) => (
               <span
                 key={area}
-                className="px-5 py-2.5 bg-cream rounded-full text-navy/60 font-medium text-sm border border-navy/5 hover:border-navy/20 hover:text-navy transition-colors duration-300"
+                className="px-5 py-2.5 bg-white rounded-full text-navy/70 font-medium text-sm border border-navy/8 shadow-sm hover:shadow-md hover:border-gold/40 hover:text-navy hover:bg-gold/5 transition-all duration-300 cursor-default"
               >
                 {area}
               </span>
@@ -256,25 +318,38 @@ export default function HomePage() {
       </section>
 
       {/* ═══ SECTION 5 — LEAD MAGNET REPEAT CTA ═══ */}
-      <section className="px-6 py-24 bg-navy">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4 fade-up">
+      <section className="relative px-6 py-24 bg-navy overflow-hidden">
+        {/* Subtle gold glow blob */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold/5 blur-3xl -translate-y-1/2 translate-x-1/3" />
+
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          {/* Decorative gold line */}
+          <div className="w-16 h-0.5 bg-gold/50 mx-auto mb-8 fade-up" />
+          <h2
+            className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4 fade-up"
+            style={{ "--delay": "0.1s" } as React.CSSProperties}
+          >
             How to Make $10,000 More on Your Home Sale
           </h2>
-          <p className="text-white/60 text-lg mb-10 leading-relaxed fade-up">
-            Discover the 7 things Duane's clients do before listing that
+          <p
+            className="text-white/60 text-lg mb-10 leading-relaxed fade-up"
+            style={{ "--delay": "0.2s" } as React.CSSProperties}
+          >
+            Discover the 7 things Duane&apos;s clients do before listing that
             consistently add value — most cost under $500.
           </p>
           <button
             onClick={openFunnel}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gold hover:bg-gold-light text-navy font-bold text-lg rounded-2xl shadow-lg shadow-black/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 fade-up"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gold hover:bg-gold-light text-navy font-bold text-lg rounded-full shadow-btn-gold hover:shadow-btn-gold-hover transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy fade-up"
+            style={{ "--delay": "0.3s" } as React.CSSProperties}
           >
             Get the Free Guide
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -290,63 +365,69 @@ export default function HomePage() {
       {/* ═══ SECTION 6 — BROKER LINK ═══ */}
       <section className="px-6 py-20 bg-cream">
         <div className="max-w-2xl mx-auto text-center fade-up">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-navy mb-4">
-            Looking for all active listings?
-          </h2>
-          <a
-            href="https://duaneenns.ca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-navy hover:bg-navy-light text-white font-semibold rounded-2xl shadow-lg shadow-navy/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-          >
-            View All My Listings on Coldwell Banker
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="bg-white rounded-3xl px-8 py-12 shadow-card border border-navy/5">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-navy mb-6">
+              Looking for all active listings?
+            </h2>
+            <a
+              href="https://duaneenns.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-navy hover:bg-navy-light text-white font-semibold rounded-full shadow-lg shadow-navy/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+              View All My Listings on Coldwell Banker
+              <svg
+                className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ═══ SECTION 7 — FOOTER ═══ */}
       <footer className="px-6 py-12 bg-navy-dark text-white/50">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Decorative gold separator */}
+          <div className="w-16 h-px bg-gold/30 mx-auto mb-8" />
+
           <p className="font-display text-xl font-semibold text-white mb-2">
             Duane Enns, REALTOR®
           </p>
-          <p className="text-sm text-gold mb-4">
+          <p className="text-sm tracking-wide text-gold mb-4">
             Coldwell Banker Preferred Real Estate
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm mb-6">
             <a
               href="tel:+12043462111"
-              className="hover:text-gold transition-colors"
+              className="py-1 px-2 hover:text-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded"
             >
               (204) 346-2111
             </a>
             <a
               href="tel:+12043263338"
-              className="hover:text-gold transition-colors"
+              className="py-1 px-2 hover:text-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded"
             >
               (204) 326-3338
             </a>
             <a
               href="mailto:duane@coldwellbanker.ca"
-              className="hover:text-gold transition-colors"
+              className="py-1 px-2 hover:text-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded"
             >
               duane@coldwellbanker.ca
             </a>
           </div>
-          <p className="text-xs text-white/25">
+          <p className="text-xs text-white/30">
             Serving Landmark, Linden, Royalwood and rural southern Manitoba
           </p>
 
