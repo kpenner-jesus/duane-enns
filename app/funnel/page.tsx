@@ -62,7 +62,7 @@ type VideoInfo = {
 function getVideo(a: Answers): VideoInfo {
   if (a.condition === "C" || a.condition === "D") {
     return {
-      id: "DUANE_VIDEO_1",
+      id: "vHaGzW2SUW4",
       headline: "Here's exactly what to fix (and what to leave alone)",
       subtext:
         "Duane walks you through the highest-ROI improvements for homes just like yours.",
@@ -86,14 +86,14 @@ function getVideo(a: Answers): VideoInfo {
   }
   if (a.situation === "C") {
     return {
-      id: "DUANE_VIDEO_4",
+      id: "cUr2av9GNeQ",
       headline: "Why homes don't sell — and exactly how we fix that",
       subtext:
         "Duane has helped many sellers who felt stuck. Here's what was really going on.",
     };
   }
   return {
-    id: "DUANE_VIDEO_5",
+    id: "nZ7pOfCKwII",
     headline: "Your free guide is on its way — watch this first",
     subtext:
       "Duane shares the single biggest mistake sellers make and how to avoid it.",
@@ -135,11 +135,11 @@ const LABELS: Record<string, Record<string, string>> = {
 };
 
 const VIDEO_LABELS: Record<string, string> = {
-  DUANE_VIDEO_1: "What to Fix and What to Leave",
+  vHaGzW2SUW4: "What to Fix and What to Leave",
   DUANE_VIDEO_2: "The $10,000 Secret",
   DUANE_VIDEO_3: "Making Buyers Fall in Love",
-  DUANE_VIDEO_4: "Why Homes Don't Sell",
-  DUANE_VIDEO_5: "Welcome + Your Free Guide",
+  cUr2av9GNeQ: "Why Homes Don't Sell",
+  nZ7pOfCKwII: "Welcome + Your Free Guide",
 };
 
 function readableAnswer(field: string, code: string): string {
@@ -605,8 +605,10 @@ export default function FunnelPage() {
                   <div
                     style={{
                       position: "relative",
-                      paddingBottom: "56.25%",
+                      paddingBottom: "177.78%", /* 9:16 vertical aspect ratio */
                       height: 0,
+                      maxWidth: "360px",
+                      margin: "0 auto",
                       borderRadius: "16px",
                       overflow: "hidden",
                     }}
