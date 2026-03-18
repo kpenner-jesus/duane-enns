@@ -604,9 +604,6 @@ export default function FunnelPage() {
                 ) : (
                   <div
                     style={{
-                      position: "relative",
-                      paddingBottom: "177.78%", /* 9:16 vertical aspect ratio */
-                      height: 0,
                       maxWidth: "360px",
                       margin: "0 auto",
                       borderRadius: "16px",
@@ -614,17 +611,15 @@ export default function FunnelPage() {
                     }}
                   >
                     <iframe
-                      src={`https://www.youtube.com/embed/${video.id}`}
+                      src={`https://www.youtube.com/shorts/${video.id}`}
                       title="Duane Enns — Personal Message"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
+                        width: "360px",
+                        height: "640px",
                         border: "none",
+                        display: "block",
                       }}
                     />
                   </div>
