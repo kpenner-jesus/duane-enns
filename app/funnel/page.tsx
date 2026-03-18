@@ -100,6 +100,52 @@ function getVideo(a: Answers): VideoInfo {
   };
 }
 
+/* ─── Human-readable labels for each answer ─── */
+const LABELS: Record<string, Record<string, string>> = {
+  situation: {
+    A: "Thinking about selling but haven't decided yet",
+    B: "Decided to sell and want to get started",
+    C: "Been trying to sell but it hasn't worked",
+    D: "Just want to know what my home is worth",
+  },
+  concern: {
+    A: "Getting the price I need",
+    B: "Finding the right buyer",
+    C: "The home not showing well",
+    D: "Not knowing what to fix first",
+  },
+  condition: {
+    A: "Move-in ready — just needs cleaning",
+    B: "Needs minor updates (paint, fixtures, small repairs)",
+    C: "Needs significant work but has great bones",
+    D: "I honestly don't know where to start",
+  },
+  timeline: {
+    A: "As soon as possible",
+    B: "In the next 3-6 months",
+    C: "Within the next year",
+    D: "Just exploring my options for now",
+  },
+  goal: {
+    A: "Getting the highest possible price",
+    B: "A fast, stress-free sale",
+    C: "Finding the right buyer who will love the home",
+    D: "Just knowing I made the right decision",
+  },
+};
+
+const VIDEO_LABELS: Record<string, string> = {
+  DUANE_VIDEO_1: "What to Fix and What to Leave",
+  DUANE_VIDEO_2: "The $10,000 Secret",
+  DUANE_VIDEO_3: "Making Buyers Fall in Love",
+  DUANE_VIDEO_4: "Why Homes Don't Sell",
+  DUANE_VIDEO_5: "Welcome + Your Free Guide",
+};
+
+function readableAnswer(field: string, code: string): string {
+  return LABELS[field]?.[code] ?? code;
+}
+
 /* ─── Choice Button ─── */
 function Choice({
   letter,
@@ -165,12 +211,12 @@ export default function FunnelPage() {
     const video = getVideo(a);
     const params = {
       lead_email: a.email,
-      situation: a.situation,
-      concern: a.concern,
-      condition: a.condition,
-      timeline: a.timeline,
-      goal: a.goal,
-      video_shown: video.id,
+      situation: readableAnswer("situation", a.situation),
+      concern: readableAnswer("concern", a.concern),
+      condition: readableAnswer("condition", a.condition),
+      timeline: readableAnswer("timeline", a.timeline),
+      goal: readableAnswer("goal", a.goal),
+      video_shown: VIDEO_LABELS[video.id] ?? video.id,
       date: new Date().toLocaleDateString("en-CA"),
     };
 
@@ -196,12 +242,12 @@ export default function FunnelPage() {
     const payload = {
       date: new Date().toLocaleDateString("en-CA"),
       email: a.email,
-      situation: a.situation,
-      concern: a.concern,
-      condition: a.condition,
-      timeline: a.timeline,
-      goal: a.goal,
-      video_shown: video.id,
+      situation: readableAnswer("situation", a.situation),
+      concern: readableAnswer("concern", a.concern),
+      condition: readableAnswer("condition", a.condition),
+      timeline: readableAnswer("timeline", a.timeline),
+      goal: readableAnswer("goal", a.goal),
+      video_shown: VIDEO_LABELS[video.id] ?? video.id,
     };
     console.log("[FUNNEL DEBUG] 🚀 Fetching SHEET_URL with payload:", payload);
     fetch(SHEET_URL, {
