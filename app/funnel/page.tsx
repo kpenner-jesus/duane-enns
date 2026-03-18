@@ -604,22 +604,28 @@ export default function FunnelPage() {
                 ) : (
                   <div
                     style={{
+                      position: "relative",
+                      width: "100%",
                       maxWidth: "360px",
+                      aspectRatio: "9 / 16",
                       margin: "0 auto",
                       borderRadius: "16px",
                       overflow: "hidden",
+                      background: "#000",
                     }}
                   >
                     <iframe
-                      src={`https://www.youtube.com/shorts/${video.id}`}
+                      src={`https://www.youtube.com/embed/${video.id}`}
                       title="Duane Enns — Personal Message"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       style={{
-                        width: "360px",
-                        height: "640px",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
                         border: "none",
-                        display: "block",
                       }}
                     />
                   </div>
