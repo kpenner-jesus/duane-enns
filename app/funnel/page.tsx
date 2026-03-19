@@ -78,7 +78,7 @@ function getVideo(a: Answers): VideoInfo {
   }
   if (a.concern === "C") {
     return {
-      id: "DUANE_VIDEO_3",
+      id: "VfF1kRGbwS8",
       headline: "How to make buyers fall in love the moment they walk in",
       subtext:
         "Duane's wife is a professional decorator. Here's what she does before every listing.",
@@ -137,7 +137,7 @@ const LABELS: Record<string, Record<string, string>> = {
 const VIDEO_LABELS: Record<string, string> = {
   vHaGzW2SUW4: "What to Fix and What to Leave",
   DUANE_VIDEO_2: "The $10,000 Secret",
-  DUANE_VIDEO_3: "Making Buyers Fall in Love",
+  VfF1kRGbwS8: "Making Buyers Fall in Love",
   cUr2av9GNeQ: "Why Homes Don't Sell",
   nZ7pOfCKwII: "Welcome + Your Free Guide",
 };
