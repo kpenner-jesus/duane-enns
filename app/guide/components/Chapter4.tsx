@@ -83,7 +83,7 @@ export default function Chapter4() {
   useEffect(() => {
     if (allDone && !showConfetti) {
       setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 4000);
+      setTimeout(() => setShowConfetti(false), 10000);
     }
   }, [allDone, showConfetti]);
 

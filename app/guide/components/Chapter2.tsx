@@ -56,7 +56,7 @@ export default function Chapter2() {
 
         <div className="space-y-4 mb-10" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
           <p className="text-lg sm:text-xl text-navy/80 leading-relaxed">
-            This chapter comes straight from my wife Jackie. She&apos;s been doing decor and staging for over 20 years. She helped design every custom home we built together.
+            This chapter comes straight from my wife Jacquie. She&apos;s been doing decor and staging for over 20 years. She helped design every custom home we built together.
           </p>
 
           <h3 className="font-funnel text-xl sm:text-2xl font-bold text-navy pt-4">1. Colors That Flow</h3>
@@ -85,7 +85,7 @@ export default function Chapter2() {
           </p>
 
           <div className="bg-gold/10 border border-gold/20 rounded-2xl p-5 mt-4">
-            <p className="text-lg sm:text-xl text-navy font-bold mb-2">Jackie&apos;s Tip:</p>
+            <p className="text-lg sm:text-xl text-navy font-bold mb-2">Jacquie&apos;s Tip:</p>
             <p className="text-lg sm:text-xl text-navy/80 leading-relaxed">
               Walk through your house like you&apos;ve never been there before. What catches your attention? What feels off? That&apos;s exactly what a buyer will notice too.
             </p>
@@ -121,12 +121,12 @@ export default function Chapter2() {
             </div>
           </div>
 
-          {/* Jackie approved banner */}
+          {/* Jacquie approved banner */}
           {jackieApproved && (
             <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-center ebook-reveal">
               <p className="text-lg font-bold text-green-700" style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
                 <span className="ebook-heart inline-block text-2xl mr-2">❤️</span>
-                Jackie-Approved! Buyers will love this home!
+                Jacquie-Approved! Buyers will love this home!
               </p>
             </div>
           )}

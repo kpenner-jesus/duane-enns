@@ -35,11 +35,11 @@ export default function WelcomePage() {
           </p>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-4"
              style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-            My name is Duane Enns. I sell homes in southern Manitoba. But before that, I built them. For 12 years, my wife Jackie and I built custom homes from the ground up. I know every beam, every pipe, every wall.
+            My name is Duane Enns. I sell homes in southern Manitoba. But before that, I built them. For 12 years, my wife Jacquie and I built custom homes from the ground up. I know every beam, every pipe, every wall.
           </p>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-4"
              style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-            And Jackie? She has a gift for making a house feel like a home. She has done decor and design for over 20 years.
+            And Jacquie? She has a gift for making a house feel like a home. She has done decor and design for over 20 years.
           </p>
           <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-4"
              style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>

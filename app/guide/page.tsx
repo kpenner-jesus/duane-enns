@@ -14,29 +14,32 @@ export default function GuidePage() {
   const [activeSection, setActiveSection] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Track which section is in view
+  // Track which section is in view using scroll position
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = sectionRefs.current.indexOf(entry.target as HTMLDivElement);
-            if (index !== -1) setActiveSection(index);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 100; // offset for top bar
+      let current = 0;
+      for (let i = sectionRefs.current.length - 1; i >= 0; i--) {
+        const ref = sectionRefs.current[i];
+        if (ref && ref.offsetTop <= scrollY) {
+          current = i;
+          break;
+        }
+      }
+      setActiveSection(current);
+    };
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // set initial
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTo = (index: number) => {
-    sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
+    const ref = sectionRefs.current[index];
+    if (ref) {
+      const top = ref.offsetTop - 8; // small offset below progress bar
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
   };
 
   const progress = ((activeSection + 1) / SECTIONS.length) * 100;

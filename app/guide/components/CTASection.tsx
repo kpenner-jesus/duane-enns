@@ -28,7 +28,7 @@ export default function CTASection() {
         </p>
         <p className="text-lg sm:text-xl text-white/70 leading-relaxed mb-4"
            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-          With Jackie, you get 20+ years of decorating and staging experience that makes buyers say &ldquo;I want this one.&rdquo;
+          With Jacquie, you get 20+ years of decorating and staging experience that makes buyers say &ldquo;I want this one.&rdquo;
         </p>
         <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-8"
            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
