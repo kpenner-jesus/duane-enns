@@ -25,10 +25,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
 
-const SERVICE   = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
-const TEMPLATE  = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-const PUBKEY    = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
-const SHEET_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL ?? "";
+const SERVICE        = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+const TEMPLATE       = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+const GUIDE_TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_GUIDE_TEMPLATE_ID ?? "";
+const PUBKEY         = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const SHEET_URL      = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL ?? "";
 
 /* ─── Types ─── */
 type Answers = {
@@ -156,7 +157,8 @@ function Choice({
 // Debug: log env vars on module load
 console.log("[FUNNEL DEBUG] SHEET_URL:", SHEET_URL ? `"${SHEET_URL}"` : "⚠️ EMPTY — check .env.local NEXT_PUBLIC_GOOGLE_SHEET_URL");
 console.log("[FUNNEL DEBUG] EmailJS SERVICE:", SERVICE || "⚠️ EMPTY");
-console.log("[FUNNEL DEBUG] EmailJS TEMPLATE:", TEMPLATE || "⚠️ EMPTY");
+console.log("[FUNNEL DEBUG] EmailJS TEMPLATE (Duane notify):", TEMPLATE || "⚠️ EMPTY");
+console.log("[FUNNEL DEBUG] EmailJS GUIDE_TEMPLATE (lead guide):", GUIDE_TEMPLATE || "⚠️ EMPTY");
 console.log("[FUNNEL DEBUG] EmailJS PUBKEY:", PUBKEY || "⚠️ EMPTY");
 
 export default function FunnelPage() {
@@ -189,7 +191,7 @@ export default function FunnelPage() {
   }
 
   function sendEmail(a: Answers) {
-    if (!SERVICE || !TEMPLATE || !PUBKEY) return;
+    if (!SERVICE || !PUBKEY) return;
 
     const video = getVideo(a);
     const params = {
@@ -203,14 +205,29 @@ export default function FunnelPage() {
       date: new Date().toLocaleDateString("en-CA"),
     };
 
-    emailjs
-      .send(SERVICE, TEMPLATE, params, { publicKey: PUBKEY })
-      .then(() => {
-        console.log("Lead email sent successfully");
-      })
-      .catch((err) => {
-        console.error("EmailJS error:", err);
-      });
+    // Email 1: Notify Duane about the new lead
+    if (TEMPLATE) {
+      emailjs
+        .send(SERVICE, TEMPLATE, params, { publicKey: PUBKEY })
+        .then(() => {
+          console.log("[FUNNEL] Lead notification email sent to Duane");
+        })
+        .catch((err) => {
+          console.error("[FUNNEL] Lead notification error:", err);
+        });
+    }
+
+    // Email 2: Send the free guide to the lead
+    if (GUIDE_TEMPLATE) {
+      emailjs
+        .send(SERVICE, GUIDE_TEMPLATE, params, { publicKey: PUBKEY })
+        .then(() => {
+          console.log("[FUNNEL] Guide email sent to lead:", a.email);
+        })
+        .catch((err) => {
+          console.error("[FUNNEL] Guide email error:", err);
+        });
+    }
   }
 
   function sendToSheet(a: Answers) {
