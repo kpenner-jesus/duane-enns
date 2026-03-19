@@ -12,7 +12,7 @@ const nextConfig = {
     return [
       {
         source: "/listings",
-        destination: "https://duaneenns.coldwellbanker.ca",
+        destination: "https://www.realtor.ca/agent/2240911/duane-enns-1-90-brandt-street-steinbach-manitoba-r3g0t3",
         permanent: false,
       },
     ];
