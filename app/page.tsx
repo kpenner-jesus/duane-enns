@@ -370,7 +370,7 @@ export default function HomePage() {
               Looking for all active listings?
             </h2>
             <a
-              href="https://duaneenns.ca"
+              href="/listings"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-navy hover:bg-navy-light text-white font-semibold rounded-full shadow-lg shadow-navy/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"

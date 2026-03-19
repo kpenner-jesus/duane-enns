@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/listings",
+        destination: "https://duaneenns.coldwellbanker.ca",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
