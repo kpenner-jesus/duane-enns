@@ -2,34 +2,22 @@
 
 /*
 ═══════════════════════════════════════════════════════════
-VIDEOS DUANE NEEDS TO RECORD (4-6 minutes each, phone or camera is fine):
+FUNNEL VIDEOS (4 personalized videos based on answers):
 
-Video 1 — "What to Fix and What to Leave"
-Talk about: The 3 things that matter most to buyers (first impression,
-kitchen feel, bathroom freshness). What NOT to spend money on.
-Your construction background — you've seen what buyers actually notice.
+Video 1 — "What to Fix and What to Leave" (vHaGzW2SUW4)
+  Shown when: Home needs significant work OR they don't know where to start
 
-Video 2 — "The $10,000 Secret"
-Talk about: The specific things your clients do before listing that
-add value (declutter, neutral paint, curb appeal, small staging).
-Share a real story of a home that sold for more than expected.
+Video 2 — "Making Buyers Fall in Love" (VfF1kRGbwS8)
+  Shown when: Concerned about the home not showing well
 
-Video 3 — "Making Buyers Fall in Love"
-Talk about: Your wife's decorating approach. The power of scent, light
-and flow. How you walk through a home and see it through a buyer's eyes.
+Video 3 — "Why Homes Don't Sell" (cUr2av9GNeQ)
+  Shown when: They've been trying to sell but it hasn't worked
 
-Video 4 — "Why Homes Don't Sell"
-Talk about: The 3 real reasons (wrong price, poor presentation,
-wrong agent/marketing). Be honest and direct.
-Tell a turnaround story.
+Video 4 — "Welcome + Your Free Guide" (nZ7pOfCKwII)
+  Shown when: Default / all other paths
 
-Video 5 — "Welcome + Your Free Guide"
-Talk about: Who you are, your background, why you do this,
-what's in the guide, what to expect from working with you.
-
-Once recorded, upload to YouTube as Unlisted.
-Replace DUANE_VIDEO_1 through DUANE_VIDEO_5 in the code
-with the actual YouTube video IDs.
+The $10,000 Secret is delivered via the booklet email,
+not as a video.
 ═══════════════════════════════════════════════════════════
 */
 
@@ -58,8 +46,9 @@ type VideoInfo = {
   subtext: string;
 };
 
-/* ─── Video logic ─── */
+/* ─── Video logic (4 videos) ─── */
 function getVideo(a: Answers): VideoInfo {
+  // Home needs work or they don't know where to start
   if (a.condition === "C" || a.condition === "D") {
     return {
       id: "vHaGzW2SUW4",
@@ -68,14 +57,7 @@ function getVideo(a: Answers): VideoInfo {
         "Duane walks you through the highest-ROI improvements for homes just like yours.",
     };
   }
-  if (a.concern === "A") {
-    return {
-      id: "DUANE_VIDEO_2",
-      headline: "The $10,000 secret most sellers never hear",
-      subtext:
-        "This is what consistently gets Duane's clients more than they expected.",
-    };
-  }
+  // Concerned about the home not showing well
   if (a.concern === "C") {
     return {
       id: "VfF1kRGbwS8",
@@ -84,6 +66,7 @@ function getVideo(a: Answers): VideoInfo {
         "Duane's wife is a professional decorator. Here's what she does before every listing.",
     };
   }
+  // Been trying to sell but it hasn't worked
   if (a.situation === "C") {
     return {
       id: "cUr2av9GNeQ",
@@ -92,6 +75,7 @@ function getVideo(a: Answers): VideoInfo {
         "Duane has helped many sellers who felt stuck. Here's what was really going on.",
     };
   }
+  // Default — welcome video for everyone else
   return {
     id: "nZ7pOfCKwII",
     headline: "Your free guide is on its way — watch this first",
@@ -136,7 +120,6 @@ const LABELS: Record<string, Record<string, string>> = {
 
 const VIDEO_LABELS: Record<string, string> = {
   vHaGzW2SUW4: "What to Fix and What to Leave",
-  DUANE_VIDEO_2: "The $10,000 Secret",
   VfF1kRGbwS8: "Making Buyers Fall in Love",
   cUr2av9GNeQ: "Why Homes Don't Sell",
   nZ7pOfCKwII: "Welcome + Your Free Guide",
@@ -197,7 +180,7 @@ export default function FunnelPage() {
     if (step < 6) {
       setStep(step + 1);
     } else {
-      // Step 6 is the last question — advance to video and send email
+      // Step 6 is the last question — advance to video and send data
       const updated = { ...answers, [field]: value };
       sendEmail(updated);
       sendToSheet(updated);
@@ -283,7 +266,6 @@ export default function FunnelPage() {
   }
 
   const video = getVideo(answers);
-  const isPlaceholder = video.id.startsWith("DUANE_");
 
   return (
     <div className="funnel-bg">
@@ -320,8 +302,8 @@ export default function FunnelPage() {
                 Where should we send your free guide?
               </h2>
               <p className="tf-subtext tf-animate tf-animate-delay-2">
-                We'll email you the PDF right away — plus a personal note from
-                Duane.
+                We&apos;ll email you the PDF right away — including the $10,000
+                secret most sellers never hear — plus a personal note from Duane.
               </p>
               <div className="tf-animate tf-animate-delay-3">
                 <input
@@ -451,7 +433,7 @@ export default function FunnelPage() {
             <div className="tf-card">
               <p className="tf-step-label tf-animate">Step 4 of 7</p>
               <h2 className="tf-question tf-animate tf-animate-delay-1">
-                How would you describe your home's current condition?
+                How would you describe your home&apos;s current condition?
               </h2>
               <Choice
                 letter="A"
@@ -564,7 +546,7 @@ export default function FunnelPage() {
           <div className="tf-body" style={{ maxWidth: "640px" }}>
             {/* Video section */}
             <div className="tf-card tf-animate" style={{ marginBottom: "1.5rem" }}>
-              <p className="tf-step-label">Your Personalized Message</p>
+              <p className="tf-step-label">A Personal Message From Duane</p>
               <h2 className="tf-question tf-animate tf-animate-delay-1">
                 {video.headline}
               </h2>
@@ -573,71 +555,81 @@ export default function FunnelPage() {
               </p>
 
               <div className="tf-animate tf-animate-delay-3">
-                {isPlaceholder ? (
-                  <div className="video-placeholder">
-                    <img
-                      src="https://i10.moxi.onl/img-pr/a/7faa4f50-42b4-4d01-a9bc-1c297ea92741/0_1_full.jpg"
-                      alt="Duane Enns"
-                      className="w-20 h-20 rounded-full object-cover mb-4 shadow-lg"
-                    />
-                    <p
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        fontSize: "1.1rem",
-                        fontWeight: 600,
-                        color: "#002349",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      Duane's personal video message is coming soon
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'Outfit', system-ui, sans-serif",
-                        fontSize: "0.85rem",
-                        color: "#8a8f9a",
-                      }}
-                    >
-                      In the meantime, your free guide is on its way!
-                    </p>
-                  </div>
-                ) : (
-                  <div
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    maxWidth: "360px",
+                    aspectRatio: "9 / 16",
+                    margin: "0 auto",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    background: "#000",
+                  }}
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title="Duane Enns — Personal Message"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                     style={{
-                      position: "relative",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
                       width: "100%",
-                      maxWidth: "360px",
-                      aspectRatio: "9 / 16",
-                      margin: "0 auto",
-                      borderRadius: "16px",
-                      overflow: "hidden",
-                      background: "#000",
+                      height: "100%",
+                      border: "none",
                     }}
-                  >
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title="Duane Enns — Personal Message"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        border: "none",
-                      }}
-                    />
-                  </div>
-                )}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Text CTA */}
+            {/* Booklet reminder + Text CTA */}
             <div
               className="tf-card tf-animate tf-animate-delay-4"
               style={{ textAlign: "center" }}
             >
+              {/* Email / booklet reminder */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
+                  padding: "1rem 1.25rem",
+                  background: "linear-gradient(135deg, rgba(197, 164, 109, 0.08), rgba(0, 35, 73, 0.04))",
+                  borderRadius: "14px",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                <svg
+                  style={{ width: "28px", height: "28px", color: "#c5a46d", flexShrink: 0 }}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <p
+                  style={{
+                    fontFamily: "'Outfit', system-ui, sans-serif",
+                    fontSize: "0.9rem",
+                    color: "#002349",
+                    lineHeight: 1.5,
+                    textAlign: "left",
+                    margin: 0,
+                  }}
+                >
+                  <strong>Check your email</strong> — your free guide is on its
+                  way, including the <em>$10,000 secret</em> most sellers never hear.
+                </p>
+              </div>
+
               <h2
                 className="tf-question"
                 style={{ marginBottom: "0.5rem" }}
