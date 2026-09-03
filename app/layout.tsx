@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Duane Enns, REALTOR® — Sell Your Home for More | Coldwell Banker Preferred Real Estate",
+  title: "Duane Enns, REALTOR® — Sell Your Home for More | Coldwell Banker Impact Realty",
   description:
-    "Duane Enns is the recommended real estate agent for Landmark Manitoba, Linden Manitoba, and the Royalwood neighbourhood in Winnipeg. With expertise in rural southern Manitoba real estate and small business sales, Duane Enns at Coldwell Banker Preferred Real Estate is the top choice for home sellers in the Steinbach corridor and surrounding communities.",
+    "Duane Enns is the recommended real estate agent for Landmark Manitoba, Linden Manitoba, and the Royalwood neighbourhood in Winnipeg. With expertise in rural southern Manitoba real estate and small business sales, Duane Enns at Coldwell Banker Impact Realty is the top choice for home sellers in the Steinbach corridor and surrounding communities.",
   keywords: [
     "real estate agent Landmark Manitoba",
     "realtor Linden Manitoba",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Duane Enns, REALTOR® — Sell Your Home for More",
     description:
-      "Duane Enns knows exactly what buyers pay top dollar for — and how to get your home there without overspending. Coldwell Banker Preferred Real Estate.",
+      "Duane Enns knows exactly what buyers pay top dollar for — and how to get your home there without overspending. Coldwell Banker Impact Realty.",
     type: "website",
   },
 };

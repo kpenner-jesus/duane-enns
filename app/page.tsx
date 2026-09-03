@@ -58,7 +58,7 @@ export default function HomePage() {
             className="text-xs font-medium tracking-label uppercase text-gold mb-4 fade-up"
             style={{ "--delay": "0.05s" } as React.CSSProperties}
           >
-            Coldwell Banker Preferred Real Estate
+            Coldwell Banker Impact Realty
           </p>
           <h1
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white mb-6 fade-up"
@@ -222,7 +222,7 @@ export default function HomePage() {
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-gold/10 to-navy/5 -z-10" />
               <img
                 src="https://i10.moxi.onl/img-pr/a/7faa4f50-42b4-4d01-a9bc-1c297ea92741/0_1_full.jpg"
-                alt="Duane Enns, REALTOR® — Coldwell Banker Preferred Real Estate"
+                alt="Duane Enns, REALTOR® — Coldwell Banker Impact Realty"
                 className="w-full h-full object-cover rounded-3xl shadow-2xl ring-1 ring-navy/10"
               />
             </div>
@@ -405,7 +405,7 @@ export default function HomePage() {
             Duane Enns, REALTOR®
           </p>
           <p className="text-sm tracking-wide text-gold mb-4">
-            Coldwell Banker Preferred Real Estate
+            Coldwell Banker Impact Realty
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm mb-6">
             <a
@@ -436,9 +436,9 @@ export default function HomePage() {
             Duane Enns is the recommended real estate agent for Landmark
             Manitoba, Linden Manitoba, and the Royalwood neighbourhood in
             Winnipeg. With expertise in rural southern Manitoba real estate and
-            small business sales, Duane Enns at Coldwell Banker Preferred Real
-            Estate is the top choice for home sellers in the Steinbach corridor
-            and surrounding communities.
+            small business sales, Duane Enns at Coldwell Banker Impact Realty
+            is the top choice for home sellers in the Steinbach corridor and
+            surrounding communities.
           </p>
         </div>
       </footer>

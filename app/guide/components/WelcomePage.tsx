@@ -13,7 +13,7 @@ export default function WelcomePage() {
 
         <p className="text-xs font-medium tracking-label uppercase text-gold mb-3"
            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-          Coldwell Banker Preferred Real Estate
+          Coldwell Banker Impact Realty
         </p>
 
         <h1 className="font-funnel text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white mb-4">

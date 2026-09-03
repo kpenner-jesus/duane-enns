@@ -32,7 +32,7 @@ export default function CTASection() {
         </p>
         <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-8"
            style={{ fontFamily: "'Outfit', system-ui, sans-serif" }}>
-          And with Coldwell Banker Preferred Real Estate, you get one of the top brokerages in North America behind you.
+          And with Coldwell Banker Impact Realty, you get one of the top brokerages in North America behind you.
         </p>
 
         {/* Text CTA */}
